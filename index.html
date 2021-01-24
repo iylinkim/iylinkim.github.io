@@ -7,16 +7,24 @@
     <link rel="stylesheet" type="text/css" href="./index.css" />
   </head>
   <body>
-    <h1 class="js-clock"></h1>
-    <form class="js-nameForm">
-      <input class="js-username" type="text" placeholder="What is your name?" />
-    </form>
-    <form class="js-todoForm">
-      <input class="js-todos" type="text" placeholder="Write a to do here" />
-    </form>
-    <ul class="js-list"></ul>
+    <div class="container">
+      <h1 class="js-clock"></h1>
+      <div class="js-weather"></div>
+      <form class="js-nameForm form">
+        <input
+          class="js-username"
+          type="text"
+          placeholder="What is your name?"
+        />
+      </form>
+      <form class="js-todoForm form">
+        <input class="js-todos" type="text" placeholder="Write a to do here" />
+      </form>
+      <ul class="js-list"></ul>
+    </div>
     <script src="./index.js"></script>
     <script src="./clock.js"></script>
     <script src="bakGround.js"></script>
+    <script src="weather.js"></script>
   </body>
 </html>
