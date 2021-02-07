@@ -57,7 +57,9 @@ function paintToDos(text) {
   const span = document.createElement("span");
   const btn = document.createElement("button");
 
-  btn.innerText = "❌";
+  // btn.innerText = "❌";
+  
+  btn.style.backgroundImage = 'url("./img/delete.png")';
   btn.addEventListener("click", deleteToDo);
   span.innerText = text;
 

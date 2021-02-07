@@ -1,3 +1,7 @@
+@font-face {
+  src: url("./font/Windows-Regular.woff");
+  font-family: "Windows-Regular";
+}
 * {
   margin: 0;
   padding: 0;
@@ -13,28 +17,96 @@ body {
   background-size: 100%;
   background-repeat: no-repeat;
   color: #fff;
+  background-color: #106f6f;
+  font-family: "Windows-Regular";
 }
 
-body:after{
-  content:"";
-  display:block;
-  width:100%;
-  height:100%;
-  background-color:rgba(0,0,0,0.4);
-  position:absolute;
-  left:0;
-  top:0;
-  z-index:-1;
+input {
+  font-family: "Windows-Regular";
+  color:#000;
+}
+
+/* body:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+} */
+
+#wrap {
+  width: 95%;
+  height: 300px;
+  margin: 0 auto;
+
+  position: relative;
+  transform: translateY(50px);
+}
+
+.box {
+  border: 1px solid #efefef;
+  border-right-color: #777;
+  border-bottom-color: #777;
+  background-color: #b3b3b3;
+}
+
+.title {
+  width: 100%;
+  height: 26px;
+  background-image: linear-gradient(to left, #125ba1 30%, #01006e);
+  position: relative;
+}
+
+.title_box {
+  width: 63px;
+  position: absolute;
+  right: 5px;
+  top: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title_btn {
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  font-weight: 700;
+  display: inline-block;
+  border: 1px solid #efefef;
+  outline: none;
+  border-right: 1px solid #777;
+  border-bottom: 1px solid #777;
+  background-color: #aaa;
+}
+
+.title_btn.click {
+  background-color: #555;
+  border: 2px solid #777;
+  border-top: 2px solid #efefef;
+  border-left: 2px solid #efefef;
 }
 
 .container {
-  /* width: 100%;
-  height: 100%; */
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%, -50%);
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-around;
   text-align: center;
+}
+
+.todoForm {
+  width: 38%;
+}
+
+.todoList {
+  width: 58%;
 }
 
 .js-clock {
@@ -51,34 +123,40 @@ body:after{
 }
 
 .weather {
-  padding-left:10px;
+  padding-left: 10px;
   color: #efefef;
 }
 
 .form {
   margin-bottom: 40px;
+  padding: 0 5%;
 }
 
 input {
-  background: none;
-  border: none;
-  outline:none;
-  border-bottom: 2px solid #fff;
+  background: #fff;
+  border: 2px solid #777;
+  border-right-color: #efefef;
+  border-bottom-color: #efefef;
+  outline: none;
   text-align: center;
   font-size: 1.2em;
-  color: #fff;
 }
-
+.submit{
+  background-color:#b3b3b3;
+  border: 1px solid #333;
+  border-right:2px solid #333;
+  border-bottom:2px solid #333;
+}
 
 .js-nameForm {
   padding-top: 60px;
 }
 
-.js-list li{
-  margin-bottom:10px;
-  font-size:1.2em;
+.js-list li {
+  margin-bottom: 10px;
+  font-size: 1.2em;
 }
 
-.js-list li span{
-  padding:0 10px;
+.js-list li span {
+  padding: 0 10px;
 }
