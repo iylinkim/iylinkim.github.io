@@ -23,7 +23,7 @@ body {
 
 input {
   font-family: "Windows-Regular";
-  color:#000;
+  color: #000;
 }
 
 /* body:after {
@@ -39,12 +39,12 @@ input {
 } */
 
 #wrap {
-  width: 95%;
-  height: 300px;
-  margin: 0 auto;
-
+  width: 96%;
+  margin: 2% auto;
   position: relative;
-  transform: translateY(50px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .box {
@@ -57,8 +57,14 @@ input {
 .title {
   width: 100%;
   height: 26px;
+  line-height:26px;
+  text-align:left;
   background-image: linear-gradient(to left, #125ba1 30%, #01006e);
   position: relative;
+}
+
+.title .title_text{
+  padding-left:10px;
 }
 
 .title_box {
@@ -91,22 +97,28 @@ input {
 }
 
 .container {
-  width: 100%;
-  position: absolute;
+  width: 96%;
+  height:96%;
+  margin:2% 0;
+  /* position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 55%;
+  transform: translate(-50%, -55%); */
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   text-align: center;
 }
 
 .todoForm {
-  width: 38%;
+  width: 100%;
+  height:40%;
 }
 
 .todoList {
-  width: 58%;
+  width: 100%;
+  height:54%;
+  margin:3% 0;
 }
 
 .js-clock {
@@ -130,6 +142,14 @@ input {
 .form {
   margin-bottom: 40px;
   padding: 0 5%;
+  display: flex;
+  flex-wrap: wrap;
+  font-size:1.2rem;
+}
+
+.form span{
+  width:100%;
+  text-align:left;
 }
 
 input {
@@ -141,22 +161,143 @@ input {
   text-align: center;
   font-size: 1.2em;
 }
-.submit{
-  background-color:#b3b3b3;
+
+.checkbox {
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+
+.js-checkbox {
+  margin-right: 5px;
+}
+
+.js-select {
+  height:30px;
+  margin-right: 10px;
+  border: 2px solid #777;
+  border-right-color: #efefef;
+  border-bottom-color: #efefef;
+}
+
+.todo_input {
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.submit {
+  margin-top: 10px;
+  padding: 0 3px;
+  background-color: #b3b3b3;
   border: 1px solid #333;
-  border-right:2px solid #333;
-  border-bottom:2px solid #333;
+  border-right: 2px solid #333;
+  border-bottom: 2px solid #333;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.5rem;
+}
+.submit input {
+  height: 20px;
+  padding: 0 3px;
+  background-color: #b3b3b3;
+  border: 1px solid transparent;
+}
+
+.js-submit.clicked {
+  border: 1px dotted #333;
 }
 
 .js-nameForm {
   padding-top: 60px;
+  font-size:1.7rem;
+}
+
+.js-list {
+  height:74%;
+  background-color: #fff;
+  margin: 10px;
+  margin-top:0;
+  padding: 30px;
+  border: 2px solid #777;
+  border-right-color: #efefef;
+  border-bottom-color: #efefef;
+  color: #000;
 }
 
 .js-list li {
   margin-bottom: 10px;
   font-size: 1.2em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .js-list li span {
   padding: 0 10px;
+}
+
+.delete_btn {
+  width: 20px;
+  height: 20px;
+  margin-left:20px;
+  border: none;
+  background: none;
+  background-image: url("./img/delete.png");
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+@keyframes underline{
+  0%{width:0;}
+  100%{width:100%;}
+}
+.important span:after{
+  content:"";
+  display:block;
+  border-bottom:2px solid red;
+  animation:underline 0.5s ease;
+}
+
+.important:before {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-image: url("./img/important.png");
+  background-size: 100% 100%;
+}
+
+.category {
+  padding: 0 5px;
+  font-size: 0.8rem;
+  border: 1px solid #555;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+  color: #fff;
+  background-color: orange;
+}
+
+.category.java {
+  background-color: green;
+}
+.category.c {
+  background-color: purple;
+}
+.category.c_pl {
+  background-color: red;
+}
+.category.python {
+  background-color: black;
+}
+.category.algo {
+  background-color: skyblue;
+}
+.category.proj {
+  background-color: blue;
+}
+
+.tabs{
+  text-align:left;
+  color:#000;
+  padding:5px 0 0 10px;
 }

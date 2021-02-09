@@ -24,13 +24,14 @@
         <div class="js-weather"></div> -->
         <div class="box todoForm">
           <div class="title">
+            <span class="title_text">Things to input</span>
             <p class="title_box">
-              <button class='title_btn'><i class="fas fa-question"></i></button>
+              <button class="title_btn"><i class="fas fa-question"></i></button>
               <button class="title_btn"><i class="fas fa-times"></i></button>
             </p>
           </div>
           <form class="js-nameForm form">
-            What is your name?
+            <!-- What is your name? -->
             <input
               class="js-username"
               type="text"
@@ -38,27 +39,52 @@
             />
           </form>
           <form class="js-todoForm form">
-            <input
-              class="js-todos"
-              type="text"
-              placeholder="Write a to do here"
-            />
-            <input class='submit' type="submit" value='Submit'>
+            <span> Select a category from the list below: </span>
+            <select class="js-select">
+              <option selected="selected" name="Javascript">Javascript</option>
+              <option name="Java">Java</option>
+              <option name="C">C</option>
+              <option name="C++">C++</option>
+              <option name="Python">Python</option>
+              <option name="Algoritum">Algoritum</option>
+              <option name="Projects">Projects</option>
+            </select>
+            <p class="checkbox">
+              <input class="js-checkbox" type="checkbox" />important
+            </p>
+            <p class="todo_input">
+              <input
+                class="js-todos"
+                type="text"
+                placeholder="Write a to do here"
+              />
+            </p>
+            <p class="submit">
+              <input class="js-submit" type="submit" value="Submit" />
+            </p>
           </form>
         </div>
         <div class="box todoList">
           <div class="title">
+            <span class="title_text">Things to do</span>
             <p class="title_box">
               <button class="title_btn"><i class="fas fa-minus"></i></button>
               <button class="title_btn"><i class="far fa-square"></i></button>
               <button class="title_btn"><i class="fas fa-times"></i></button>
             </p>
           </div>
+          <p class="tabs">
+            <span>File</span>
+            <span>Edit</span>
+            <span>View</span>
+            <span>Help</span>
+          </p>
           <ul class="js-list"></ul>
         </div>
       </div>
     </div>
     <script src="./index.js"></script>
+    <script src="./height.js"></script>
     <!-- <script src="./clock.js"></script> -->
     <!-- <script src="bakGround.js"></script> -->
     <!-- <script src="weather.js"></script> -->

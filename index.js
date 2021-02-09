@@ -3,6 +3,9 @@ const todoForm = document.querySelector(".js-todoForm");
 const username = document.querySelector(".js-username");
 const todos = document.querySelector(".js-todos");
 const list = document.querySelector(".js-list");
+const select = document.querySelector(".js-select");
+const checkbox = document.querySelector(".js-checkbox");
+const submit = document.querySelector(".js-submit");
 let todosArr = [];
 
 const NONE = "none";
@@ -13,7 +16,7 @@ function deleteToDo(e) {
   const targetLi = e.target.parentNode;
   list.removeChild(targetLi);
 
-  const cleanToDos = todosArr.filter(todo => {
+  const cleanToDos = todosArr.filter((todo) => {
     return todo.id !== parseInt(targetLi.id);
   });
   todosArr = cleanToDos;
@@ -52,18 +55,20 @@ function loadName() {
   }
 }
 
-function paintToDos(text) {
+function paintToDos(text, cate, imp) {
   const li = document.createElement("li");
   const span = document.createElement("span");
   const btn = document.createElement("button");
+  const p = document.createElement("p");
 
-  // btn.innerText = "❌";
-  
-  btn.style.backgroundImage = 'url("./img/delete.png")';
+  p.innerText = cate;
+  p.className = `category ${getCateName(cate)}`;
+  btn.classList.add("delete_btn");
   btn.addEventListener("click", deleteToDo);
-  span.innerText = text;
+  span.innerText = `${text}`;
 
   li.appendChild(span);
+  li.appendChild(p);
   li.appendChild(btn);
   li.id = todosArr.length;
   list.appendChild(li);
@@ -71,16 +76,24 @@ function paintToDos(text) {
   const todoObj = {
     id: todosArr.length,
     text,
+    category: cate,
+    important: imp,
   };
 
+  //checkbox가 체크 되어있을 때
+  if (imp) {
+    li.classList.add("important");
+  }
   todosArr.push(todoObj);
+
   saveToDos();
 }
 
 function handleToDos(e) {
   e.preventDefault();
-  paintToDos(todos.value);
-  saveToDos(todosArr);
+  paintToDos(todos.value, select.value, checkbox.checked);
+  saveToDos();
+  submit.classList.add("clicked");
   todos.value = "";
 }
 
@@ -90,12 +103,43 @@ function loadToDos() {
   todoForm.addEventListener("submit", handleToDos);
 
   if (todoItem !== null) {
-    parsedToDo.forEach(todo => paintToDos(todo.text));
+    parsedToDo.forEach((todo) => {
+      console.log(todo);
+      paintToDos(todo.text, todo.category, todo.important);
+    });
   }
 }
 
+function getCateName(name) {
+  switch (name) {
+    case "Javascript":
+      return "js";
+      break;
+    case "Java":
+      return "java";
+      break;
+    case "C":
+      return "c";
+      break;
+    case "C++":
+      return "c_pl";
+      break;
+    case "Python":
+      return "python";
+      break;
+    case "Algoritum":
+      return "algo";
+      break;
+    case "Projects":
+      return "proj";
+      break;
+    default:
+      return "js";
+  }
+}
 function init() {
   loadName();
   loadToDos();
+  console.log(todosArr);
 }
 init();
