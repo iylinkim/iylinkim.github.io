@@ -13,6 +13,7 @@
   <body>
     <div id="wrap" class="box">
       <div class="title">
+        <span class="title_text"> To do for Developer </span>
         <p class="title_box">
           <button class="title_btn"><i class="fas fa-minus"></i></button>
           <button class="title_btn"><i class="far fa-square"></i></button>
@@ -39,7 +40,7 @@
             />
           </form>
           <form class="js-todoForm form">
-            <span> Select a category from the list below: </span>
+            <span> Select a category from the list below : </span>
             <select class="js-select">
               <option selected="selected" name="Javascript">Javascript</option>
               <option name="Java">Java</option>
@@ -63,6 +64,10 @@
               <input class="js-submit" type="submit" value="Submit" />
             </p>
           </form>
+          <ul class="status">
+            <li><p class="status_icon"><img src="./img/done.png" alt="done"></p> Done: <span class="js-done"></span></li>
+            <li><p class="status_icon"><img src="./img/proceeding.png" alt="done"></p>Proceeding: <span class="js-proceeding"></span></li>
+          </ul>
         </div>
         <div class="box todoList">
           <div class="title">

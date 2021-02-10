@@ -21,22 +21,11 @@ body {
   font-family: "Windows-Regular";
 }
 
-input {
+input,
+select {
   font-family: "Windows-Regular";
   color: #000;
 }
-
-/* body:after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-} */
 
 #wrap {
   width: 96%;
@@ -57,14 +46,14 @@ input {
 .title {
   width: 100%;
   height: 26px;
-  line-height:26px;
-  text-align:left;
+  line-height: 26px;
+  text-align: left;
   background-image: linear-gradient(to left, #125ba1 30%, #01006e);
   position: relative;
 }
 
-.title .title_text{
-  padding-left:10px;
+.title .title_text {
+  padding-left: 10px;
 }
 
 .title_box {
@@ -98,8 +87,8 @@ input {
 
 .container {
   width: 96%;
-  height:96%;
-  margin:2% 0;
+  height: 96%;
+  margin: 2% 0;
   /* position: absolute;
   left: 50%;
   top: 55%;
@@ -112,13 +101,12 @@ input {
 
 .todoForm {
   width: 100%;
-  height:40%;
+  position: relative;
 }
 
 .todoList {
   width: 100%;
-  height:54%;
-  margin:3% 0;
+  margin: 3% 0;
 }
 
 .js-clock {
@@ -144,12 +132,16 @@ input {
   padding: 0 5%;
   display: flex;
   flex-wrap: wrap;
-  font-size:1.2rem;
+  align-items: center;
+  font-size: 1.2rem;
 }
 
-.form span{
-  width:100%;
-  text-align:left;
+.form span {
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+  padding-bottom: 5px;
+  font-size: 0.8em;
 }
 
 input {
@@ -163,6 +155,7 @@ input {
 }
 
 .checkbox {
+  padding-right: 15px;
   color: #000;
   display: flex;
   align-items: center;
@@ -173,7 +166,7 @@ input {
 }
 
 .js-select {
-  height:30px;
+  height: 30px;
   margin-right: 10px;
   border: 2px solid #777;
   border-right-color: #efefef;
@@ -181,13 +174,18 @@ input {
 }
 
 .todo_input {
-  margin-top: 10px;
-  margin-right: 5px;
+  width: 30%;
+  margin-right: 10px;
+}
+
+.todo_input input {
+  width: 100%;
+  text-align: left;
+  text-indent: 10px;
 }
 
 .submit {
-  margin-top: 10px;
-  padding: 0 3px;
+  padding: 3px;
   background-color: #b3b3b3;
   border: 1px solid #333;
   border-right: 2px solid #333;
@@ -197,33 +195,40 @@ input {
   align-items: center;
   font-size: 0.5rem;
 }
+.submit:hover {
+  border: 1px solid #333;
+}
+.submit:hover input {
+  border: 1px dotted #333;
+}
 .submit input {
-  height: 20px;
+  height: 17px;
   padding: 0 3px;
   background-color: #b3b3b3;
   border: 1px solid transparent;
+  vertical-align: middle;
 }
 
 .js-submit.clicked {
-  border: 1px dotted #333;
+  /* border: 1px dotted #333; */
 }
 
 .js-nameForm {
-  padding-top: 60px;
-  font-size:1.7rem;
+  padding-top: 20px;
+  font-size: 1.7rem;
 }
 
 .js-list {
-  max-height:231px;
+  max-height: 231px;
   background-color: #fff;
   margin: 10px;
-  margin-top:0;
+  margin-top: 0;
   padding: 30px;
   border: 2px solid #777;
   border-right-color: #efefef;
   border-bottom-color: #efefef;
   color: #000;
-  overflow-y:auto;
+  overflow-y: auto;
 }
 
 .js-list li {
@@ -241,22 +246,31 @@ input {
 .delete_btn {
   width: 20px;
   height: 20px;
-  margin-left:20px;
+  margin-left: 20px;
+  outline: none;
   border: none;
   background: none;
   background-image: url("./img/delete.png");
   background-size: 100% 100%;
   cursor: pointer;
 }
-@keyframes underline{
-  0%{width:0;}
-  100%{width:100%;}
+
+.delete_btn:hover {
+  opacity: 0.8;
 }
-.important span:after{
-  content:"";
-  display:block;
-  border-bottom:2px solid red;
-  animation:underline 0.5s ease;
+@keyframes underline {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.important span:after {
+  content: "";
+  display: block;
+  border-bottom: 2px solid red;
+  animation: underline 0.5s ease;
 }
 
 .important:before {
@@ -297,8 +311,37 @@ input {
   background-color: blue;
 }
 
-.tabs{
-  text-align:left;
-  color:#000;
-  padding:5px 0 0 10px;
+.tabs {
+  text-align: left;
+  color: #000;
+  padding: 5px 0 0 10px;
 }
+
+.status {
+  position: absolute;
+  right: 20px;
+  top: 50px;
+  text-align: right;
+  color: #000;
+}
+
+.status li {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.status li span {
+  padding-left: 5px;
+}
+
+.status_icon {
+  width: 20px;
+  height: 20px;
+  padding-right: 5px;
+}
+
+.status_icon img {
+  width: 100%;
+}
+
+

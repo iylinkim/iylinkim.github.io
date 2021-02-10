@@ -6,13 +6,19 @@ const list = document.querySelector(".js-list");
 const select = document.querySelector(".js-select");
 const checkbox = document.querySelector(".js-checkbox");
 const submit = document.querySelector(".js-submit");
+const done = document.querySelector(".js-done");
+const proceeding = document.querySelector(".js-proceeding");
 let todosArr = [];
 
 const NONE = "none";
 const USER_LS = "currentUser";
 const TODOS = "todos";
+const DONE = "done";
+let count = localStorage.getItem(DONE);
+
 
 function deleteToDo(e) {
+  count++;
   const targetLi = e.target.parentNode;
   list.removeChild(targetLi);
 
@@ -21,6 +27,8 @@ function deleteToDo(e) {
   });
   todosArr = cleanToDos;
   saveToDos();
+  saveDone();
+  getStatus();
 }
 
 function saveToDos() {
@@ -29,6 +37,10 @@ function saveToDos() {
 
 function saveName(text) {
   localStorage.setItem(USER_LS, text);
+}
+
+function saveDone() {
+  localStorage.setItem(DONE, count);
 }
 
 function handleName(e) {
@@ -137,9 +149,18 @@ function getCateName(name) {
       return "js";
   }
 }
+
+function getStatus() {
+  done.innerText = localStorage.getItem(DONE);
+  proceeding.innerText = todosArr.length;
+}
 function init() {
   loadName();
   loadToDos();
+  getStatus();
+  // if(count === undefined){
+  //   count = 0;
+  // }
   console.log(todosArr);
 }
 init();
