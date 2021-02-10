@@ -107,6 +107,7 @@ function handleToDos(e) {
   saveToDos();
   submit.classList.add("clicked");
   todos.value = "";
+  getStatus();
 }
 
 function loadToDos() {
