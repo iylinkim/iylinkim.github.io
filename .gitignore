@@ -2,3 +2,8 @@
 font/
 img/
 node_modules/
+
+# files
+weather.js
+clock.js
+bakGround.js
